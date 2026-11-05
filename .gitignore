@@ -1,0 +1,10 @@
+# Local-only review artifacts and private inputs
+verification/
+preview-public/
+site-config.json
+*.zip
+liftspire-preview.html
+node_modules/
+.env
+.env.*
+__pycache__/

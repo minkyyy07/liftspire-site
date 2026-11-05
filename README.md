@@ -1,17 +1,36 @@
-# Liftspire landing website
+# Liftspire website — preview source
 
-Static HTML, CSS and JavaScript; no build step or runtime dependencies. App artwork is illustrative, not a shipping app.
+English-first, framework-free static HTML/CSS/JavaScript landing page. Interface artwork and sample data are illustrative, not a shipping app. The CTA explores the concept; platforms, pricing, languages and availability remain unconfirmed. No forms, email collection, tracking, storage or remote fonts.
 
-## Local preview
+## Review and verification
 
-Run `python3 -m http.server 4173 --bind 127.0.0.1` from this directory and open http://127.0.0.1:4173.
+Serve the repository locally with `python3 -m http.server 4173 --bind 127.0.0.1`.
 
-## Cloudflare Pages
+```sh
+node --check app.js
+node scripts/verify.cjs
+python3 scripts/package.py
+node scripts/verify-standalone.cjs
+python3 scripts/release-check
+```
 
-Connect this repository, select `main`, choose no framework and no build command, and serve the repository root (`/`) as the output directory. No environment variables are required. This repository does not configure or change an existing Cloudflare deployment.
+Browser checks use Node, Chromium and playwright-core. Set PLAYWRIGHT_PATH to the installed playwright-core module path when necessary; scripts default to a common OpenClaw installation. No runtime dependencies. Reports and screenshots are generated locally, not committed. The release check intentionally fails until factual legal/hosting inputs and separate publication approval are complete. It does not certify compliance.
 
-## Legal status
+## Strict deployment file allowlist
 
-The Impressum contains PENDING placeholders and is not ready for public release. There is no privacy notice in this source. Before public release, fill in the actual operator/contact details directly in impressum.html and assess the final hosting/privacy requirements. References to site-config.json in the existing placeholder text come from the original local generation workflow; that private configuration and generator are intentionally not included. Do not invent legal details.
+The generated deployment ZIP contains exactly these 11 files, with index.html at its root:
 
-No forms, analytics, optional tracking, remote fonts, backend or email collection are included. Internal drafts, private configuration, verification artifacts and archives are excluded.
+- index.html, styles.css, app.js
+- assets/logo.svg, assets/mark.svg, assets/favicon.svg, assets/onest.ttf
+- assets/app-today.webp, assets/app-workout.webp, assets/app-nutrition.webp
+- assets/social-preview.png
+
+For a future clean release, use this strict allowlist rather than the entire repository root. Legacy `impressum.html` is preserved unchanged from earlier history, is incomplete, is not linked by this revision and is **not** part of the deployment allowlist. It is not an approved legal notice. No placeholder privacy/legal notice is added. Private configuration, archives, generated portable preview and verification output stay untracked.
+
+## Publication remains blocked
+
+Keep noindex. It is not access control. Confirm the legal operator, service address/contact and applicable jurisdiction; select the final host/domain and verify actual processing, logs, retention, recipients/transfers and applicable notices. Complete and link genuine notices before public release. Set real canonical/og:url and absolute HTTPS social-image metadata, then obtain separate publishing approval before removing noindex. A full product launch additionally requires real usable product/early-access access and verified release information.
+
+## Existing live preview
+
+The existing Vercel production preview is updated from main with explicit authorization. This is a website-preview update, not an app launch or legal-compliance clearance. No deployment-suppression configuration is added to main. The separate website-review-20261105 branch retains its branch-specific guard. Hosting/domain settings are unchanged.

@@ -1,6 +1,7 @@
 'use strict';
 (() => {
   const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  if (!tabs.length) return;
   const panel = document.getElementById('demo-panel');
   const image = document.getElementById('demo-image');
   const views = {

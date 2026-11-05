@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+"""Technical publication gate: absence of placeholders is not legal clearance."""
+from pathlib import Path
+import json,re,sys,zipfile
+p=Path(__file__).resolve().parent.parent
+issues=[]
+html=(p/'index.html').read_text()
+try: cfg=json.loads((p/'site-config.json').read_text())
+except (OSError,ValueError): cfg={}
+for k in ['LEGAL_NAME','STREET_ADDRESS','POSTAL_CODE_CITY','COUNTRY','CONTACT_EMAIL']:
+    if not cfg.get(k) or 'pending' in str(cfg[k]).lower(): issues.append('Confirm '+k+' privately before preparing public legal pages')
+for name in ['privacy.html','impressum.html']:
+    f=p/name
+    if not f.exists() or re.search(r'(?i)draft|pending|not ready for public',f.read_text()): issues.append(name+' is missing or incomplete')
+    if 'href="'+name+'"' not in html: issues.append(name+' not linked from landing')
+if 'noindex' in html: issues.append('noindex still set: publication approval/domain setup pending')
+if 'rel="canonical"' not in html or 'property="og:url"' not in html: issues.append('real canonical/og:url missing')
+if not re.search(r'property="og:image" content="https://',html): issues.append('absolute HTTPS social-image URL missing')
+z=p/'liftspire-deployment.zip'
+if not z.exists(): issues.append('deployment ZIP missing')
+else:
+    with zipfile.ZipFile(z) as a:
+        if a.testzip() is not None: issues.append('ZIP integrity failure')
+        if a.read('index.html') != (p/'index.html').read_bytes(): issues.append('ZIP index is stale')
+print('PUBLIC RELEASE: '+('BLOCKED' if issues else 'TECHNICAL GATE PASSED'))
+for item in issues: print('- '+item)
+print('Host processing/log retention, completed applicable notices and separate publishing approval still require factual review; this is not legal certification.')
+print('Full PH product launch additionally needs usable product/early-access access, not concept artwork.')
+sys.exit(1 if issues else 0)

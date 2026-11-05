@@ -310,3 +310,10 @@ summary:hover{color:#91b7ff}
 
 
 .legal-footer>a:last-child{display:inline-flex;align-items:center;min-height:44px}
+
+/* Launch polish: readable fine print, reliable touch targets and zoom reflow. */
+.hero-copy,.demo-controls,.section-heading>div{min-width:0}
+.hero-note,.section-footnote,.demo-disclaimer,.closing-note{font-size:12px}
+.hero-visual .visual-caption{font-size:10px}
+.footer-links a{white-space:normal}
+@media(max-width:360px){.header .brand img{width:132px}.header-action{padding-inline:8px}.header{column-gap:6px}.preview-lights{display:none}.preview-top{letter-spacing:.5px}.hero-actions{gap:12px}.hero-actions .button{gap:14px}}
