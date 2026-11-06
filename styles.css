@@ -317,3 +317,50 @@ summary:hover{color:#91b7ff}
 .hero-visual .visual-caption{font-size:10px}
 .footer-links a{white-space:normal}
 @media(max-width:360px){.header .brand img{width:132px}.header-action{padding-inline:8px}.header{column-gap:6px}.preview-lights{display:none}.preview-top{letter-spacing:.5px}.hero-actions{gap:12px}.hero-actions .button{gap:14px}}
+
+/* Liftspire visual refresh: compact product-led composition, brand colours retained. */
+body{background-color:#080b14;background-image:radial-gradient(ellipse at 50% 0%,#15294c 0,transparent 38rem),linear-gradient(#ffffff05 1px,transparent 1px),linear-gradient(90deg,#ffffff05 1px,transparent 1px);background-size:auto,64px 64px,64px 64px}
+.header{min-height:86px;border-color:#26344e}
+.header nav{padding:6px;background:#101b2c;border:1px solid #27354c;border-radius:999px;gap:2px}
+.header nav a{padding:8px 15px;border-radius:999px}
+.header nav a:hover{background:#1a2e4f}
+.header-action{border-radius:999px;background:#14213a;border-color:#304663}
+.hero{min-height:720px;gap:64px;padding-block:70px 90px}
+.hero-copy>.eyebrow{display:inline-flex;padding:8px 13px;border:1px solid #285598;border-radius:999px;background:#12284a;color:#94baff;letter-spacing:1.3px;margin-bottom:25px}
+.hero h1{font-weight:750;letter-spacing:-.055em;line-height:1.02}
+.hero-description{max-width:38rem;font-size:19px;line-height:1.55}
+.hero-subcopy{border-left:2px solid #246bff;padding-left:14px}
+.button{border-radius:10px;font-weight:700}
+.hero-visual:before{background:radial-gradient(ellipse at center,#246bff32,transparent 70%)}
+.orbit{border-color:#4d8dff20}
+.screenshot-frame{transform:none;border-radius:22px;border-color:#3b4d6c;box-shadow:0 32px 90px #000a,0 0 60px #246bff1a}
+.frame-top,.preview-top{background:#121c2c}
+.floating-tag{border-radius:12px;transform:none;background:#111e32f5}
+.discipline-strip{background:#0d1828;border-color:#283b59}
+.strip-inner{color:#c7d6f1}
+.feature-card{background:linear-gradient(155deg,#152239,#0c1524);border-color:#2a3c58;border-radius:16px;box-shadow:0 16px 50px #0002}
+.feature-icon{border-radius:12px}
+.demo-section{background:#0b1422;border-color:#283b59}
+.demo-tab{border-radius:10px}
+.demo-tab[aria-selected=true]{background:#172d50;border-color:#3967a5}
+.demo-preview{border-radius:16px;border-color:#344b6a}
+.faq-list details{border-color:#2b3b55}
+.closing{background:linear-gradient(135deg,#172c4a,#101a2b);border-color:#385376;border-radius:18px}
+@media(max-width:760px){
+ .header{min-height:0;row-gap:12px}
+ .header nav{background:transparent;border:0;border-radius:0;gap:6px}
+ .header nav a{padding:7px 10px;background:#101d30;border:1px solid #253955;border-radius:999px;white-space:nowrap}
+ .header-action{min-height:38px;display:inline-flex;align-items:center}
+ .hero{padding-block:42px 54px;gap:30px;min-height:0}
+ .hero h1{font-size:clamp(39px,10.4vw,60px);line-height:1.04;letter-spacing:-.045em}
+ .hero-description{font-size:16px}
+ .hero-actions{align-items:stretch;gap:12px}
+ .hero-actions .button{justify-content:center;min-height:52px}
+ .hero-actions .text-link{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 14px;border:1px solid #30425d;border-radius:10px}
+ .hero-visual{padding-inline:16px}
+ .screenshot-frame{max-width:360px;margin-inline:auto}
+ .tag-workout{left:0;bottom:75px}
+ .feature-card{border-radius:14px}
+}
+@media(max-width:360px){.header nav{gap:4px}.header nav a{font-size:11px;padding-inline:7px}.hero h1{font-size:39px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
